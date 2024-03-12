@@ -27,7 +27,7 @@ const NewsDetail = ({ isOpen, closeModal, news }) => {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="relative w-[500px] h-auto max-w-lg max-h-[90vh] overflow-y-hidden transform rounded-2xl bg-white p-4 text-left shadow-xl transition-all flex flex-col gap-5">
+              <Dialog.Panel className="relative md:w-[500px] w-[40  0px] h-auto max-w-lg max-h-[90vh] overflow-y-hidden transform rounded-2xl bg-white p-4 text-left shadow-xl transition-all flex flex-col gap-5">
                 <button
                   type="button"
                   className="absolute top-2 right-2 z-10 w-fit p-2 bg-primary-blue-100 rounded-full"
@@ -41,22 +41,22 @@ const NewsDetail = ({ isOpen, closeModal, news }) => {
                     className="object-contain"
                   />
                 </button>
-                <div className="relative flex mt-5 justify-center items-center w-full h-40 bg-pattern bg-cover bg-center rounded-lg">
-                      <img
-                        src={news && news.urlToImage}
-                        alt="news image"
-                        width={350} height={25}
-                        className="object-contain rounded-lg"
-                      />
-                    </div>
+                <div className="relative flex mt-10 justify-center items-center w-full h-40 bg-pattern bg-cover bg-center rounded-lg">
+                  <img
+                    src={news && news.urlToImage}
+                    alt="news image"
+                    width={350}
+                    height={25}
+                    className="object-contain rounded-lg"
+                  />
+                </div>
                 <div className="flex-1 flex flex-col gap-2">
-                  <h2 className="font-semibold text-xl capitalize">
+                  <h2 className="font-semibold mt-8 px-4 text-center  text-xl capitalize">
                     {news && news.title}
                   </h2>
                   <div className="mt-3 flex flex-wrap gap-4">
-                    <div className="flex justify-between gap-5 w-full text-right">
-                      <h4 className="text-gray capitalize "></h4>
-                      <p className="text-black-100 font-semibold">
+                    <div className="flex justify-start gap-5 w-full text-left">
+                      <p className="text-black-100 font-normal">
                         {news && news.description}
                       </p>
                     </div>

@@ -1,15 +1,16 @@
 import NewsCard from "@/components/NewsCard";
+import { Suspense } from "react";
+import Loading from "./loading";
 
-
-export default async function Home() {
-      
-
-
+export default function Home() { // Changed from async function to regular function
   return (
     <>
-    <div className="">
-    <NewsCard />
-    </div>
+      <div>
+      
+        <Suspense fallback={<Loading />}>
+          <NewsCard />
+        </Suspense>
+      </div>
     </>
   );
 }

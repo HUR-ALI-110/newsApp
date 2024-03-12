@@ -1,21 +1,19 @@
-// NewsCard.js
 "use client"
-// NewsCard.js
-import { useEffect, useState } from "react";
+import NewsDetail from '@/components/NewsDetail';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import Link from "next/link";
-import NewsDetail from "@/components/NewsDetail";
+import React, { useEffect, useState } from 'react'
 
-const NewsCard = () => {
-  const [news, setNews] = useState([]);
+const TopHeadlines = () => {
+    const [news, setNews] = useState([]);
+    const router = useRouter()
   const [selectedNews, setSelectedNews] = useState(null);
-  const router = useRouter()
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const url = new Request(
-          "https://newsapi.org/v2/everything?q=apple&language=en&sortBy=popularity&apiKey=1321806314974cf49765390937fa33ca", { next: { revalidate: 60 } }
+          "https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=1321806314974cf49765390937fa33ca", { next: { revalidate: 60 } }
         );
         const req = await fetch(url);
         if (!req.ok) {
@@ -37,7 +35,7 @@ const NewsCard = () => {
   const handleClick = (selectedArticle) => {
     setSelectedNews(selectedArticle);
     let Spathname= window.location.pathname;
-    router.push(Spathname,{scroll:false}) 
+    router.push(Spathname,{scroll:false})
   };
 
   const truncateDescription = (description, maxWords) => {
@@ -105,7 +103,7 @@ const NewsCard = () => {
         )}  
       <NewsDetail isOpen={!!selectedNews} closeModal={() => setSelectedNews(null)} news={selectedNews} />
     </div>
-  );
-};
+  )
+}
 
-export default NewsCard;
+export default TopHeadlines;
